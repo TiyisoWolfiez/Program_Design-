@@ -67,3 +67,15 @@ Matrix::Matrix(int in_rows, int in_columns){
         }
     }
 }
+Matrix::~Matrix(){
+    for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+        // for(int t_iterator = 0;t_iterator<this->rows;t_iterator++){
+        //     delete [] this->matrix[k_iterator][t_iterator];
+        // }
+        delete [] this->matrix[k_iterator];
+    }
+    delete [] this->matrix;
+    this->matrix = NULL;
+    this->columns = 0;
+    this->rows = 0;
+}
