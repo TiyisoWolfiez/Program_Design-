@@ -79,3 +79,73 @@ Matrix::~Matrix(){
     this->columns = 0;
     this->rows = 0;
 }
+void Matrix::resizeRows(int num_rows){
+    if(num_rows<1){
+        std::cout<<"Error: cannot have less than 1 row"<<std::endl;
+    }
+    else if(num_rows<this->rows){
+        int ** arr = new int*[this->rows];
+        for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+            arr[k_iterator] = new int[this->columns];
+        }
+        for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+            for(int t_iterator = 0;t_iterator<this->columns;t_iterator++){
+                arr[k_iterator][t_iterator]=*this->matrix[k_iterator][t_iterator];
+            }
+        }
+        for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+            delete [] this->matrix[k_iterator];
+        }
+        delete [] this->matrix;
+        this->matrix = NULL;
+        this->rows = num_rows;
+        this->matrix = new int**[this->rows];
+        for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+            this->matrix[k_iterator] = new int*[this->columns];
+            for(int t_iterator = 0;t_iterator<this->columns;t_iterator++){
+                this->matrix[k_iterator][t_iterator] = &arr[k_iterator][t_iterator];
+            }
+        }
+    }
+    else if(num_rows>this->rows){
+        int ** arr = new int*[this->rows];
+        for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+            arr[k_iterator] = new int[this->columns];
+        }
+        for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+            for(int t_iterator = 0;t_iterator<this->columns;t_iterator++){
+                arr[k_iterator][t_iterator]=*this->matrix[k_iterator][t_iterator];
+            }
+        }
+        for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+            delete [] this->matrix[k_iterator];
+        }
+        delete [] this->matrix;
+        this->matrix = NULL;
+        int old = this->rows;
+        int index = 0;
+        this->rows = num_rows;
+        int **arrTemp = new int*[this->rows];
+        for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+            arrTemp[k_iterator] = new int[this->columns];
+        }
+        for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+            for(int t_iterator = 0;t_iterator<this->columns;t_iterator++){
+                arrTemp[k_iterator][t_iterator] = 0;
+            }
+        }
+        this->matrix = new int**[this->rows];
+        for(int k_iterator = 0;k_iterator<old;k_iterator++){
+            this->matrix[k_iterator] = new int*[this->columns];
+            for(int t_iterator = 0;t_iterator<this->columns;t_iterator++){
+                this->matrix[k_iterator][t_iterator] = &arr[k_iterator][t_iterator];
+            }
+        }
+        for(int k_iterator = old;k_iterator<this->rows;k_iterator++){
+            this->matrix[k_iterator] = new int*[this->columns];
+            for(int t_iterator = 0;t_iterator<this->columns;t_iterator++){
+                this->matrix[k_iterator][t_iterator] = &arrTemp[k_iterator][t_iterator];
+            }
+        }
+    }
+}
