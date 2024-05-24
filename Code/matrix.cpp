@@ -217,3 +217,19 @@ void Matrix::resizeColumns(int num_cols){
         }
     }
 }
+void Matrix::setMatrix(){
+    int **arrTemp = new int*[this->rows];
+    for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+        arrTemp[k_iterator] = new int[this->columns];
+    }
+    for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+        for(int t_iterator = 0;t_iterator<this->columns;t_iterator++){
+            cin>>arrTemp[k_iterator][t_iterator];
+        }
+    }
+    for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+        for(int t_iterator = 0;t_iterator<this->columns;t_iterator++){
+            this->matrix[k_iterator][t_iterator]=&arrTemp[k_iterator][t_iterator];
+        }
+    }
+}
