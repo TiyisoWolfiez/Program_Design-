@@ -15,3 +15,8 @@ Chesspiece::Chesspiece(Chesspiece &obj){
     this->numberOfPieces= obj.getNumberOfPieces();
     this->numberOfPieces++;
 }
+
+Chesspiece::Chesspiece(string in_name){
+    this->name = in_name;
+    this->numberOfPieces+=1;
+}
