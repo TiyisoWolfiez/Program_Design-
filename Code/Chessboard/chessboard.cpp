@@ -29,3 +29,16 @@ Chessboard::Chessboard(int in_rows, int in_columns){
         }
     }
 }
+
+Chessboard::~Chessboard(){
+    for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+        for(int t_iterator = 0;t_iterator<this->columns;t_iterator++){
+            delete this->board[k_iterator][t_iterator];
+            this->board[k_iterator][t_iterator] = NULL;
+        }
+        delete[] this->board[k_iterator];
+        this->board[k_iterator] = NULL;
+    }
+    delete [] this->board;
+    this->board = NULL;
+}
