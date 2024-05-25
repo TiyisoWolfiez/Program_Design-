@@ -20,3 +20,7 @@ Chesspiece::Chesspiece(string in_name){
     this->name = in_name;
     this->numberOfPieces+=1;
 }
+
+Chesspiece::~Chesspiece(){
+    this->numberOfPieces-=1;
+}
