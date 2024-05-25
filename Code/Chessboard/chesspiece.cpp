@@ -24,3 +24,7 @@ Chesspiece::Chesspiece(string in_name){
 Chesspiece::~Chesspiece(){
     this->numberOfPieces-=1;
 }
+
+string Chesspiece::getName() const{
+    return this->name;
+}
