@@ -32,3 +32,7 @@ string Chesspiece::getName() const{
 bool Chesspiece::getType() const{
     return this->type;
 }
+
+int Chesspiece::getNumberOfPieces() const{
+    return this->numberOfPieces;
+}
