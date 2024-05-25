@@ -8,3 +8,10 @@ Chesspiece::Chesspiece(){
     this->name  = "";
     this->type = true;
 }
+
+Chesspiece::Chesspiece(Chesspiece &obj){
+    this->type = obj.getType();
+    this->name = obj.getName();
+    this->numberOfPieces= obj.getNumberOfPieces();
+    this->numberOfPieces++;
+}
