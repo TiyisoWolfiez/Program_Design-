@@ -51,3 +51,7 @@ void Chessboard::removeChesspiece(int row, int column){
     delete this->board[row][column];
     this->board[row][column] = NULL;
 }
+
+Chesspiece& Chessboard::at(int row, int column) const{
+    return (*this->board[row][column]);
+}
