@@ -17,3 +17,15 @@ Chessboard::Chessboard(Chessboard &obj){
         }
     }
 }
+
+Chessboard::Chessboard(int in_rows, int in_columns){
+    this->rows = in_rows;
+    this->columns = in_columns;
+    this->board = new Chesspiece**[this->rows];
+    for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+        this->board[k_iterator] = new Chesspiece*[this->columns];
+        for(int t_iterator = 0;t_iterator<this->columns;t_iterator++){
+            this->board[k_iterator][t_iterator] = NULL;
+        }
+    }
+}
