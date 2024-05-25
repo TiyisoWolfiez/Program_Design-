@@ -36,3 +36,9 @@ bool Chesspiece::getType() const{
 int Chesspiece::getNumberOfPieces() const{
     return this->numberOfPieces;
 }
+
+Chesspiece::Chesspiece(string in_name, bool in_type){
+    this->name = in_name;
+    this->type = in_type;
+    this->numberOfPieces+=1;
+}
