@@ -55,3 +55,21 @@ void Chessboard::removeChesspiece(int row, int column){
 Chesspiece& Chessboard::at(int row, int column) const{
     return (*this->board[row][column]);
 }
+
+Chessboard& Chessboard::operator=(const Chessboard &other){
+    this->rows=other.rows;
+    this->columns=other.columns;
+    this->board = new Chesspiece**[rows];
+    for(int k_iterator = 0;k_iterator<rows;k_iterator++){
+        this->board[k_iterator] = new Chesspiece*[columns];
+        for(int t_iterator = 0;t_iterator<columns;t_iterator++){
+            if(other.board[k_iterator][t_iterator]==NULL){
+                this->board[k_iterator][t_iterator] = NULL;
+            }
+            else{
+                this->board[k_iterator][t_iterator] = new Chesspiece(*other.board[k_iterator][t_iterator]);
+            }
+        }
+    }
+    return *this;
+}
