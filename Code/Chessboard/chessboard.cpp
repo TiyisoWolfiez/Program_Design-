@@ -73,3 +73,16 @@ Chessboard& Chessboard::operator=(const Chessboard &other){
     }
     return *this;
 }
+
+Chessboard& Chessboard::operator+=(const Chessboard &other){
+    this->rows=other.rows;
+	this->columns=other.columns;
+    for(int k_iterator = 0;k_iterator<this->rows;k_iterator++){
+        for(int t_iterator = 0;t_iterator<this->columns;t_iterator++){
+            if(this->board[k_iterator][t_iterator] == NULL && other.board[k_iterator][t_iterator]!=NULL){
+                this->board[k_iterator][t_iterator] = new Chesspiece(*other.board[k_iterator][t_iterator]);
+            }
+        }
+    }
+    return *this;
+}
