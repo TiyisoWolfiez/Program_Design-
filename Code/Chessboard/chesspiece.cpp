@@ -28,3 +28,7 @@ Chesspiece::~Chesspiece(){
 string Chesspiece::getName() const{
     return this->name;
 }
+
+bool Chesspiece::getType() const{
+    return this->type;
+}
