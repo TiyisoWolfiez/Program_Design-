@@ -46,3 +46,8 @@ Chessboard::~Chessboard(){
 void Chessboard::addChesspiece(Chesspiece *piece, int row, int column){
     this->board[row][column] = piece;
 }
+
+void Chessboard::removeChesspiece(int row, int column){
+    delete this->board[row][column];
+    this->board[row][column] = NULL;
+}
