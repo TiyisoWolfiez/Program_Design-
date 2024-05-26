@@ -16,3 +16,16 @@ TwoDArray::TwoDArray(int** array, int* sizes, int baseSize){
         }
     }
 }
+TwoDArray::~TwoDArray(){
+    const int size = this->getBaseSize();
+    for(int i = 0;i<size;i++){
+        delete this->array[i];
+    }
+    for(int i = 0;i<size;i++){
+        this->array[i] = NULL;
+    }
+    delete this->array;
+    delete this->sizes;
+    this->array = NULL;
+    this->sizes = NULL;
+}
