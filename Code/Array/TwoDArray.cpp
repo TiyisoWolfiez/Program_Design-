@@ -32,3 +32,9 @@ TwoDArray::~TwoDArray(){
 TwoDArray::operator int(){
     return this->getBaseSize();
 }
+TwoDArray::operator int*(){
+    return this->getSizes();
+}
+TwoDArray::operator int**(){
+    return this->getArray();
+}
