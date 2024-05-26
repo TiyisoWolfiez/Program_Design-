@@ -38,3 +38,19 @@ TwoDArray::operator int*(){
 TwoDArray::operator int**(){
     return this->getArray();
 }
+std::ostream& operator<<(std::ostream& os, TwoDArray& tda){
+    const int size = tda.getBaseSize();
+    for(int i = 0;i<size;i++){
+        const int sizes = tda.getSizes()[i];
+        for(int j = 0;j<sizes;j++){
+            os<<tda.array[i][j];
+            if(j>=(tda.getSizes()[i]-1)){
+                os<<std::endl;
+            }
+            else{
+                os<<" ";
+            }
+        }
+    }
+    return os;
+}
