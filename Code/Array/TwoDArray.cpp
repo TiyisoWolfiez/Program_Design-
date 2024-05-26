@@ -29,3 +29,6 @@ TwoDArray::~TwoDArray(){
     this->array = NULL;
     this->sizes = NULL;
 }
+TwoDArray::operator int(){
+    return this->getBaseSize();
+}
