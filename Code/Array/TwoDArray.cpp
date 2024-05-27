@@ -57,3 +57,11 @@ std::ostream& operator<<(std::ostream& os, TwoDArray& tda){
 int TwoDArray::getBaseSize(){
     return this->baseSize;
 }
+int* TwoDArray::getSizes(){
+    const int size = this->getBaseSize();
+    int* temp1 = new int[size];
+    for(int i = 0;i<size;i++){
+        temp1[i] = this->sizes[i];
+    }
+    return temp1;
+}
