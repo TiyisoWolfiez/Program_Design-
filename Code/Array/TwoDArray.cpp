@@ -76,3 +76,6 @@ int** TwoDArray::getArray(){
     }
     return temp;
 }
+int* TwoDArray::operator[](int index){
+    return 0;
+}
