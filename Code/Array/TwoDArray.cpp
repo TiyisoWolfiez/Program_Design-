@@ -54,3 +54,6 @@ std::ostream& operator<<(std::ostream& os, TwoDArray& tda){
     }
     return os;
 }
+int TwoDArray::getBaseSize(){
+    return this->baseSize;
+}
