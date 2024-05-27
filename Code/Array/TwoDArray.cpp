@@ -65,3 +65,14 @@ int* TwoDArray::getSizes(){
     }
     return temp1;
 }
+int** TwoDArray::getArray(){
+    int **temp = new int*[this->getBaseSize()];
+    for(int i = 0, size = this->getBaseSize();i<size;i++){
+        const int temp2 = this->getSizes()[i];
+        temp[i] = new int[temp2];
+        for(int j = 0;j<temp2;j++){
+            temp[i][j] = this->array[i][j];
+        }
+    }
+    return temp;
+}
