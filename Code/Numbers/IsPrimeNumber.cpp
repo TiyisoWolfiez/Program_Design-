@@ -16,3 +16,10 @@ bool IsPrimeNumber::evaluate(int val){
     }
     return Temp;
 }
+NumberTester* IsPrimeNumber::clone(){
+    IsPrimeNumber* Temp = new IsPrimeNumber(); 
+    return Temp;
+}
+int IsPrimeNumber::getNumAliveObjects(){
+    return numAliveObjects;
+}
