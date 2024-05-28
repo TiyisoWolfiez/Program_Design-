@@ -11,3 +11,10 @@ bool IsGreater::evaluate(int val){
     bool Temp = (val>this->value);
     return Temp;
 }
+NumberTester* IsGreater::clone(){
+    IsGreater* Temp = new IsGreater(this->value);
+    return Temp;
+}
+int IsGreater::getNumAliveObjects(){
+    return numAliveObjects;
+}
