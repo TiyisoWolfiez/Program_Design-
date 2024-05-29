@@ -62,3 +62,19 @@ int TesterInterface::getMaxNumTesters() const
 {
     return this->maxNumTesters;
 }
+TesterInterface::~TesterInterface()
+{
+    int i=0;
+    for(; i<this->maxNumTesters; i+=1)
+    {
+        if(this->testers[i]!=NULL){
+            delete this->testers[i];
+            this->testers[i] = NULL;
+        }
+    }
+    if(testers!=NULL){
+        delete [] testers;
+        testers = NULL;
+    }
+    this->currNumTesters = this->maxNumTesters = 0;
+}
