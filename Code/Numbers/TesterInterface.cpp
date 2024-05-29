@@ -54,3 +54,7 @@ TesterInterface::TesterInterface(TesterInterface* other)
         this->testers = new NumberTester*[this->maxNumTesters];
     }
 }
+int TesterInterface::getCurrNumTesters() const
+{
+    return this->currNumTesters;
+}
