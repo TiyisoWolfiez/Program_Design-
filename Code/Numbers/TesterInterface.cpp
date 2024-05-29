@@ -58,3 +58,7 @@ int TesterInterface::getCurrNumTesters() const
 {
     return this->currNumTesters;
 }
+int TesterInterface::getMaxNumTesters() const
+{
+    return this->maxNumTesters;
+}
