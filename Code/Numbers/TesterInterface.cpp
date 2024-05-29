@@ -78,3 +78,30 @@ TesterInterface::~TesterInterface()
     }
     this->currNumTesters = this->maxNumTesters = 0;
 }
+int TesterInterface::addTester(NumberTester* tester)
+{
+    int Temp = 0;
+    if(tester == NULL)
+    {
+        return -1;
+    }
+    else if(this->currNumTesters == this->maxNumTesters)
+    {
+        return -1;
+    }
+    else
+    {
+        int i = 0;
+        for(;i<this->maxNumTesters; i+=1)
+        {
+            if(!(this->testers[i]!=NULL))
+            {
+                this->testers[i] = tester->clone();
+                Temp = i;
+                currNumTesters+=1;
+                break;
+            }
+        }
+    }
+    return Temp;
+}
