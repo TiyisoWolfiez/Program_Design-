@@ -6,3 +6,8 @@ IsDivisible::IsDivisible(int Value): ValueDependantTester(Value){
 IsDivisible::~IsDivisible(){
     this->numAliveObjects-=1;
 }
+bool IsDivisible::evaluate(int val){
+    int result = (val%this->value);
+    bool Temp = result==0;
+    return Temp;
+}
