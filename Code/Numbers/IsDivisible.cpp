@@ -11,3 +11,10 @@ bool IsDivisible::evaluate(int val){
     bool Temp = result==0;
     return Temp;
 }
+NumberTester* IsDivisible::clone(){
+    IsDivisible* Temp = new IsDivisible(this->value);
+    return Temp;
+}
+int IsDivisible::getNumAliveObjects(){
+    return numAliveObjects;
+}
