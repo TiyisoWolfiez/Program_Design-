@@ -4,3 +4,6 @@ int ValueIndependantTester::numAliveObjects = 0;
 ValueIndependantTester::ValueIndependantTester(){
     this->numAliveObjects+=1;
 }
+ValueIndependantTester::~ValueIndependantTester(){
+    this->numAliveObjects-=1;
+}
