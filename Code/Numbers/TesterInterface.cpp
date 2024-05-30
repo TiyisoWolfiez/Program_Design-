@@ -160,3 +160,16 @@ int* TesterInterface::failedTests(int num)
     }
     return myArray;
 }
+int TesterInterface::numberOfFailedTests(int num)
+{
+    if(currNumTesters==0) return 0;
+    int Temp2 = 0, i=0;
+    for(; i<this->maxNumTesters; i+=1)
+    {
+        if(this->testers[i]!=NULL){
+            bool Temp = this->testers[i]->evaluate(num);
+            if(Temp == false) Temp2+=1;
+        }
+    }
+    return Temp2;
+}
