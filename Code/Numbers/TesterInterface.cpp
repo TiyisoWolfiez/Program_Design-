@@ -105,3 +105,25 @@ int TesterInterface::addTester(NumberTester* tester)
     }
     return Temp;
 }
+bool TesterInterface::removeTester(int pos)
+{
+    if(pos>=maxNumTesters)
+    {
+        return false;
+    }
+    if(pos<0)
+    {
+        return false;
+    }
+    if(pos>=maxNumTesters)
+    {
+        return false;
+    }
+    else
+    {
+        delete testers[pos];
+        testers[pos] = NULL;
+        currNumTesters--;
+    }
+    return true;
+}
