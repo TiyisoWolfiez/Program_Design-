@@ -127,3 +127,19 @@ bool TesterInterface::removeTester(int pos)
     }
     return true;
 }
+bool TesterInterface::evaluate(int num)
+{
+    if(currNumTesters == 0) return false;
+    int Temp = 0;
+    for(int i=0; i<this->maxNumTesters; i+=1)
+    {
+        if(this->testers[i]!=NULL)
+        {
+            if(!(this->testers[i]->evaluate(num)))
+            {
+                return false;
+            }
+        }
+    }
+    return true;
+}
