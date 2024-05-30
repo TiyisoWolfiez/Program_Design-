@@ -11,3 +11,10 @@ bool NumberTester::evaluate(int val){
     // This is a pure virtual function.
     return true;
 }
+NumberTester* NumberTester::clone(){
+    // This is a pure virtual function.
+    return NULL;
+}
+int NumberTester::getNumAliveObjects(){
+    return numAliveObjects;
+}
