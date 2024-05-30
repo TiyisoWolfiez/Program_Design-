@@ -173,3 +173,18 @@ int TesterInterface::numberOfFailedTests(int num)
     }
     return Temp2;
 }
+NumberTester* TesterInterface::operator[](int pos)
+{
+    if(pos<0)
+    {
+        return NULL;
+    }
+    else if(pos>=maxNumTesters)
+    {
+        return NULL;
+    }
+    else
+    {
+        return testers[pos];
+    }
+}
