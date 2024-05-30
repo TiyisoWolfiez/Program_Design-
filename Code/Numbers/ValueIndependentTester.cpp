@@ -7,3 +7,7 @@ ValueIndependantTester::ValueIndependantTester(){
 ValueIndependantTester::~ValueIndependantTester(){
     this->numAliveObjects-=1;
 }
+bool ValueIndependantTester::evaluate(int val){
+    // This is a pure virtual function.
+    return true;
+}
