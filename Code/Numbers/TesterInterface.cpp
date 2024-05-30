@@ -143,3 +143,20 @@ bool TesterInterface::evaluate(int num)
     }
     return true;
 }
+int* TesterInterface::failedTests(int num)
+{
+    int* myArray = new int[numberOfFailedTests(num)];
+    int i=0, temp2 = 0;
+    for(; i<this->maxNumTesters; i+=1)
+    {
+        if(this->testers[i]!=NULL){
+            bool Temp = this->testers[i]->evaluate(num);
+            if(Temp == false)
+            {
+                myArray[temp2]=i;
+                temp2+=1;
+            }
+        }
+    }
+    return myArray;
+}
