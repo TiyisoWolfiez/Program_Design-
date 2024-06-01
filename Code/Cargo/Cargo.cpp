@@ -9,3 +9,6 @@ Cargo::Cargo(double weight, double value){
 double Cargo::getWeight() const{
     return Cargo::weight;
 }
+double Cargo::getValue() const{
+    return Cargo::value;
+}
