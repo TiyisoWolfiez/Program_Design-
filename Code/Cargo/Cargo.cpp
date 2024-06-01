@@ -12,3 +12,14 @@ double Cargo::getWeight() const{
 double Cargo::getValue() const{
     return Cargo::value;
 }
+string Cargo::describe(){
+    std::stringstream ss;
+    std::string Value = "";
+    ss << Cargo::value;
+    ss >> Value;
+    ss.clear();
+    std::string Weight = "";
+    ss << Cargo::weight;
+    ss >> Weight;
+    return "Generic cargo <"+Value+"> ("+Weight+")";
+}
