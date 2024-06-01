@@ -1,7 +1,6 @@
-#ifndef Cargo_H
-#define Cargo_H
-#include <sstream>
-#include <string>
+//The Cargo implementation file
+#include "Cargo.h"
+using namespace std;
 
 class Cargo
 {
