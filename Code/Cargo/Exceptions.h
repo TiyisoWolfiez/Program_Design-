@@ -29,3 +29,5 @@ class AboveWeightEx{
         AboveWeightEx(double weightDiff1);
         double getDifference() const;
 };
+#include "Exceptions.cpp"
+#endif
