@@ -13,3 +13,13 @@ template <class E>
 NotFoundEx<E>::NotFoundEx(E* miss){
     NotFoundEx<E>::missing = miss;
 }
+template <class E>
+E* NotFoundEx<E>::getNotFound() const{
+    return NotFoundEx<E>::missing;
+}
+
+template <class E>
+UndervaluedEx<E>::UndervaluedEx(E* val, double sum){
+    UndervaluedEx<E>::underVal = val;
+    UndervaluedEx<E>::sum = sum;
+}
