@@ -12,3 +12,11 @@ class UndervaluedEx{
         E* getUndervalued() const;
         double getSum() const;
 };
+template <class E>
+class NotFoundEx{
+    private:
+        E* missing;
+    public:
+        NotFoundEx(E* mising1);
+        E* getNotFound() const;
+};
