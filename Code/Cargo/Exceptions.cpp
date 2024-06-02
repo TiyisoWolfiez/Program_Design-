@@ -23,3 +23,11 @@ UndervaluedEx<E>::UndervaluedEx(E* val, double sum){
     UndervaluedEx<E>::underVal = val;
     UndervaluedEx<E>::sum = sum;
 }
+template <class E>
+E* UndervaluedEx<E>::getUndervalued() const{
+    return UndervaluedEx<E>::underVal;
+}
+template <class E>
+double UndervaluedEx<E>::getSum() const{
+    return UndervaluedEx<E>::sum;
+}
