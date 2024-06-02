@@ -20,3 +20,12 @@ class NotFoundEx{
         NotFoundEx(E* mising1);
         E* getNotFound() const;
 };
+class UnauthorisedEx{};
+class EmptyEx{};
+class AboveWeightEx{
+    private:
+        double weightDiff;
+    public:
+        AboveWeightEx(double weightDiff1);
+        double getDifference() const;
+};
