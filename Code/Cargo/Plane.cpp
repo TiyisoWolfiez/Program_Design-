@@ -27,3 +27,20 @@ void Plane<T>::remove(T* var){
         Plane<T>::cargo.erase(Plane<T>::cargo.begin() + index);
     }
 }
+template <class T>
+string Plane<T>::getDescription(){
+    if(Plane<T>::cargo.empty() == !false){
+        throw EmptyEx();
+    }
+    else{
+        string returned = "";
+        for(int k=0, n = Plane<T>::cargo.size(); k< n; k++){
+            if(Plane<T>::cargo[k]){
+                returned += Plane<T>::cargo[k]->describe() + "\n";
+            }
+        }
+        int len = returned.length()-1;
+        return returned.substr(len-(returned.length()-1), len);
+    }
+    return "";
+}
