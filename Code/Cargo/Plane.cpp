@@ -130,3 +130,13 @@ void Plane<T>::add(T* var){
         Plane<T>::cargo.push_back(var);
     }
 }
+template <>
+double Plane<SecretCargo>::calculateValue()
+{
+    if(Plane<SecretCargo>::cargo.empty() == !false){
+        throw EmptyEx();
+    }
+    else{
+        throw UnauthorisedEx();
+    }
+}
