@@ -110,3 +110,23 @@ double Plane<T>::calculateValue(){
     }
     return 0;
 }
+template <class T>
+Plane<T>::~Plane(){
+    cargo.clear();
+}
+template <class T>
+void Plane<T>::add(T* var){
+    double weightTotal = var->getWeight();
+    for(int i=0, n = Plane<T>::cargo.size(); i< n; i++){
+        if(Plane<T>::cargo[i]){
+            weightTotal += Plane<T>::cargo[i]->getWeight();
+        }
+    }
+    if(weightTotal > Plane<T>::maxWeight){
+        double weightTotalDiff = weightTotal - Plane<T>::maxWeight;
+        throw AboveWeightEx(weightTotalDiff);
+    }
+    else{
+        Plane<T>::cargo.push_back(var);
+    }
+}
