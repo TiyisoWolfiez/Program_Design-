@@ -19,3 +19,5 @@ class Plane
         double calculateValue();
         std::string getDescription();
 };
+#include "Plane.cpp"
+#endif
