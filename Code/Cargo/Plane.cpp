@@ -44,3 +44,12 @@ string Plane<T>::getDescription(){
     }
     return "";
 }
+template <>
+string Plane<SecretCargo>::getDescription(){
+    if(Plane<SecretCargo>::cargo.empty() == !false){
+        throw EmptyEx();
+    }
+    else{
+        throw UnauthorisedEx();
+    }
+}
