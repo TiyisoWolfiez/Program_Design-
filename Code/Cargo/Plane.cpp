@@ -53,3 +53,60 @@ string Plane<SecretCargo>::getDescription(){
         throw UnauthorisedEx();
     }
 }
+template <class T>
+double Plane<T>::calculateValue(){
+    if(Plane<T>::cargo.empty() == !false){
+        throw EmptyEx();
+    }
+    else{
+        const int size = Plane<T>::cargo.size();
+        double* leastValues = new double[size];
+        double totalValue = 0;
+        int leastIndex = -1, secondLeastIndex = -1;
+        for(int i = 0; i < size; i++){
+            if(Plane<T>::cargo[i] == NULL){
+                leastValues[i] = 7888888;
+            }
+            else{
+                leastValues[i] = Plane<T>::cargo[i]->getValue();
+                totalValue += Plane<T>::cargo[i]->getValue();
+            }
+        }
+        for(int i = 0; i < size-1; i++){
+            for(int k = size-1; k > i; --k){
+                if(leastValues[k] < leastValues[k - 1]){
+                    double tmpVal = leastValues[k];
+                    leastValues[k] = leastValues[k - 1];
+                    leastValues[k - 1] = tmpVal;
+                }
+            }
+        }
+        for(int i = 0; i < size; i++){
+            if(Plane<T>::cargo[i]){
+                if(Plane<T>::cargo[i]->getValue()<=leastValues[0]){
+                    leastIndex = i;
+                    break;
+                }
+            }
+        }
+        for(int i = 0; i < size; i++){
+            if(Plane<T>::cargo[i]){
+                if(Plane<T>::cargo[i]->getValue()>leastValues[0]){
+                    secondLeastIndex = i;
+                    break;
+                }
+            }
+        }
+        for(int i = 0; i < size; i++){
+            if(Plane<T>::cargo[i]->getValue()>Plane<T>::cargo[leastIndex]->getValue() && Plane<T>::cargo[i]->getValue()<Plane<T>::cargo[secondLeastIndex]->getValue()){
+                secondLeastIndex = i;
+            }
+        }
+        if(Plane<T>::cargo[leastIndex]->getValue() < (Plane<T>::cargo[secondLeastIndex]->getValue())/2){
+            totalValue = totalValue-Plane<T>::cargo[leastIndex]->getValue();
+            throw UndervaluedEx<T>(Plane<T>::cargo[leastIndex], totalValue);
+        }
+        return totalValue;
+    }
+    return 0;
+}
