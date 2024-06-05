@@ -33,3 +33,16 @@ string Controller<T>::getPlaneContents(){
         return "Not permitted";   
     }
 }
+template <class T>
+double Controller<T>::getTotalValue(){
+    try{
+        return Controller<T>::plane->calculateValue();
+    }
+    catch(UndervaluedEx<T> exception){
+        Controller<T>::plane->remove(exception.getUndervalued());
+        return exception.getSum();
+    }
+    catch(...){
+        return 0;
+    }
+}
