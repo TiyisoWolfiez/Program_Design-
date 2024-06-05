@@ -21,3 +21,15 @@ string Controller<T>::loadOnPlane(T* var){
         return "Could not load item, above max weight by " + temp;
     }
 }
+template <class T>
+string Controller<T>::getPlaneContents(){
+    try{
+        return Controller<T>::plane->getDescription();
+    }
+    catch(EmptyEx exception){
+        return "Nothing to report";
+    }
+    catch(UnauthorisedEx exception){
+        return "Not permitted";   
+    }
+}
