@@ -13,3 +13,14 @@ double Passenger::getWeight() const{
 double Passenger::getValue() const{
     return Passenger::ticketPrice;
 }
+string Passenger::describe(){
+    stringstream ss;
+    string Ticket = "";
+    ss << Passenger::ticketPrice;
+    ss >> Ticket;
+    ss.clear();
+    string Weight = "";
+    ss << Passenger::weight;
+    ss >> Weight;
+    return ID+" <"+Ticket+"> ("+Weight+")";
+}
