@@ -33,3 +33,12 @@ std::string SortList<T>::debug(){
     }
     return temp_string.substr(0, temp_string.length()-1);
 }
+template<class T>
+std::string SortList<T>::print(){
+    std::string temp_string("");
+    for(SortNode<T>* temp_node = this->head; temp_node != NULL; ){
+        temp_string += temp_node->print() + ",";
+        temp_node = temp_node->next;
+    }
+    return temp_string.substr(0, temp_string.length()-1);
+}
