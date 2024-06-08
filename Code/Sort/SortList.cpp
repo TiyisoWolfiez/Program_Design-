@@ -19,3 +19,17 @@ void SortList<T>::add(SortNode<T>* val){
         this->head = val;
     }
 }
+template<class T>
+void SortList<T>::setAsc(bool val){
+    this->ascending = val;
+    this->sort();
+}
+template<class T>
+std::string SortList<T>::debug(){
+    std::string temp_string("");
+    for(SortNode<T>* temp_node = this->tail; temp_node != NULL; ){
+        temp_string += temp_node->print() + ",";
+        temp_node = temp_node->prev;
+    }
+    return temp_string.substr(0, temp_string.length()-1);
+}
