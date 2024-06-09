@@ -75,3 +75,42 @@ SortNode<T>* SortList<T>::remove(T val){
     }
     return temp_node;
 }
+template<class T>
+void SortList<T>::sort(){
+    SortList<T>* sorted_List;
+    sorted_List = new SortList<T>(this->ascending);
+    if(this->ascending != false){
+        for( ; this->head != NULL ; ){
+            SortNode<T>* temp_node;
+            SortNode<T>* smallest_node;
+            for(smallest_node = temp_node = this->head; temp_node != NULL; ){
+                bool temp_bool = (temp_node->getValue() < smallest_node->getValue());
+                if(temp_bool){
+                    smallest_node = temp_node;
+                }
+                temp_node = temp_node->next;
+            }
+            smallest_node = this->remove(smallest_node->getValue());
+            sorted_List->add(smallest_node);
+        }
+    }
+    else{
+        for( ; this->head != NULL ; ){
+            SortNode<T>* temp_node;
+            SortNode<T>* largest_node;
+            for(largest_node = temp_node = this->head; temp_node != NULL; ){
+                bool temp_bool = (temp_node->getValue() > largest_node->getValue());
+                if(temp_bool){
+                    largest_node = temp_node;
+                }
+                temp_node = temp_node->next;
+            }
+            largest_node = this->remove(largest_node->getValue());
+            sorted_List->add(largest_node);
+        }
+    }
+    this->tail = sorted_List->tail;
+    this->head = sorted_List->head;
+    delete sorted_List;
+    sorted_List = NULL;
+}
