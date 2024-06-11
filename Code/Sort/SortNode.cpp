@@ -16,3 +16,7 @@ std::string SortNode<T>::print(){
     temp_ss >> temp;
     return temp;
 }
+template<class T>
+T SortNode<T>::getValue(){
+    return this->value;
+}
