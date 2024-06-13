@@ -15,3 +15,18 @@ Chromosome::Chromosome(int numGenes, RandomGenerator* rand){
         }
     }
 }
+Chromosome::Chromosome(Chromosome* chromosome){
+    this->genes = NULL;
+    this->numGenes = 0;
+    if(chromosome!=NULL){
+        this->numGenes = chromosome->getNumGenes();
+        this->genes = new bool[this->numGenes];
+        for(int k_iterator=0;k_iterator<this->numGenes;k_iterator++){
+            this->genes[k_iterator]=chromosome->getGenes()[k_iterator];
+        }
+    }
+    else{
+        int k_iterator = 0;
+        Chromosome(k_iterator, NULL);
+    }
+}
