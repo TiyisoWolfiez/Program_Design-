@@ -55,3 +55,12 @@ Chromosome::~Chromosome(){
     delete [] this->genes;
     this->numGenes = 0;
 }
+double Chromosome::fitness(FitnessFunction* fitnessFunction, Chromosome* chromosome, int numGenes){
+    if(fitnessFunction == NULL || chromosome == NULL || numGenes<=0){
+        return 0;
+    }
+    return fitnessFunction->calculateFitness(chromosome, numGenes);
+}
+int Chromosome::getNumGenes(){
+    return this->numGenes;
+}
