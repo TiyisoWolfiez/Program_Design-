@@ -50,3 +50,8 @@ Chromosome::Chromosome(bool* genes, int numGenes){
         }
     }
 }
+Chromosome::~Chromosome(){
+    this->genes = NULL;
+    delete [] this->genes;
+    this->numGenes = 0;
+}
