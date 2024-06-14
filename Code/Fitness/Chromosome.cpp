@@ -111,3 +111,6 @@ std::string Chromosome::toString(){
     }
     return myReturnString;
 }
+bool* Chromosome::getGenes(){
+    return this->genes;
+}
