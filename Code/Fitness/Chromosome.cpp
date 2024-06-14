@@ -99,3 +99,15 @@ std::string Chromosome::toString(){
     if(this->numGenes<=0){
         return "";
     }
+    else{
+        for(int k_iterator=0;k_iterator<this->numGenes;k_iterator++){
+            if(this->genes[k_iterator]){
+                myReturnString+="1";
+            }
+            else{
+                myReturnString+="0";
+            }
+        }
+    }
+    return myReturnString;
+}
