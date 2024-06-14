@@ -84,3 +84,13 @@ Chromosome* Chromosome::crossOver(Chromosome* c2){
         return myTempChromosome;
     }
 }
+Chromosome* Chromosome::mutate(){
+    bool* nGenes = new bool[this->getNumGenes()];
+    for(int k_iterator=0;k_iterator<this->getNumGenes();k_iterator++){
+        nGenes[k_iterator]=!this->getGenes()[k_iterator];
+    }
+    Chromosome* myTempChromosome = new Chromosome(nGenes, this->getNumGenes());
+    delete [] nGenes;
+    nGenes = NULL;
+    return myTempChromosome;
+}
