@@ -96,3 +96,6 @@ Chromosome* Chromosome::mutate(){
 }
 std::string Chromosome::toString(){
     std::string myReturnString = "";
+    if(this->numGenes<=0){
+        return "";
+    }
