@@ -94,3 +94,5 @@ Chromosome* Chromosome::mutate(){
     nGenes = NULL;
     return myTempChromosome;
 }
+std::string Chromosome::toString(){
+    std::string myReturnString = "";
