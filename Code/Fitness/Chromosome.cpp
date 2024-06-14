@@ -64,3 +64,23 @@ double Chromosome::fitness(FitnessFunction* fitnessFunction, Chromosome* chromos
 int Chromosome::getNumGenes(){
     return this->numGenes;
 }
+Chromosome* Chromosome::crossOver(Chromosome* c2){
+    if(c2 == NULL){
+        Chromosome* myTempChromosome = new Chromosome(this);
+        return myTempChromosome;
+    }
+    else{
+        int crossOverPoint = floor(c2->getNumGenes()/2);
+        bool* nGenes = new bool[this->getNumGenes()];
+        for(int k_iterator=0;k_iterator<crossOverPoint;k_iterator++){
+            nGenes[k_iterator]=this->genes[k_iterator];
+        }
+        for(int k_iterator=crossOverPoint;k_iterator<this->numGenes;k_iterator++){
+            nGenes[k_iterator]=c2->genes[k_iterator];
+        }
+        Chromosome* myTempChromosome = new Chromosome(nGenes, this->getNumGenes());
+        delete [] nGenes;
+        nGenes = NULL;
+        return myTempChromosome;
+    }
+}
