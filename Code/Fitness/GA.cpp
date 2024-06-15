@@ -23,3 +23,14 @@ GA::GA(GA* geneticAlgorithm){
         }
     }
 }
+GA::~GA(){
+    const int length_Array = this->populationSize;
+    for(int k_iterator=0;k_iterator<length_Array;k_iterator++){
+        population[k_iterator] = NULL;
+        delete population[k_iterator];
+    }
+    population = NULL;
+    delete [] population;
+    this->populationSize=0;
+    this->selectionSize=0;
+}
