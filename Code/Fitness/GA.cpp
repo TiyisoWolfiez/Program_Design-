@@ -66,3 +66,14 @@ double GA::calculateAvgAccuracy(FitnessFunction* fitnessFunction){
     }
     return avgAccuracy/length_Array;
 }
+double GA::calculateStd(FitnessFunction* fitnessFunction){
+    double avgAccuracy = calculateAvgAccuracy(fitnessFunction), stdAccuracy = 0;
+    const int length_Array = this->populationSize;
+    for(int k_iterator=0;k_iterator<length_Array;k_iterator++){
+        if(this->population[k_iterator]!=NULL){
+            double fitnesP = this->population[k_iterator]->fitness(fitnessFunction, this->population[k_iterator], this->population[k_iterator]->getNumGenes());
+            stdAccuracy+=pow((fitnesP-avgAccuracy),2);
+        }
+    }
+    return sqrt(stdAccuracy/length_Array);
+}
