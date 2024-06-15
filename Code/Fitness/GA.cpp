@@ -77,3 +77,38 @@ double GA::calculateStd(FitnessFunction* fitnessFunction){
     }
     return sqrt(stdAccuracy/length_Array);
 }
+double GA::calculateVariance(){
+    double numUnique = 0;
+    const int length_Array = this->populationSize;
+    std::string *myArray = new std::string[length_Array];
+    for(int k_iterator=0;k_iterator<length_Array;k_iterator++){
+        myArray[k_iterator]="X";
+    }
+    int index = 0;
+    std::string myTempString;
+    for(int t_iterator=0;t_iterator<length_Array;t_iterator++){
+        if(this->population[t_iterator]!=NULL){
+            myTempString=this->population[t_iterator]->toString();
+            myTempString+=this->population[t_iterator]->getNumGenes();
+        }
+        bool found = false;
+        for(int t_iterator=0;t_iterator<length_Array;t_iterator++){
+            if(myArray[t_iterator]==myTempString){
+                found = true;
+                break;
+            }
+        }
+        if(found==false){
+            myArray[index] = myTempString;
+            index+=1;
+        }
+    }
+    for(int k_iterator=0;k_iterator<length_Array;k_iterator++){
+        if(myArray[k_iterator]!="X"){
+            numUnique+=1;
+        }
+    }
+    delete [] myArray;
+    myArray = NULL;
+    return numUnique/length_Array;
+}
