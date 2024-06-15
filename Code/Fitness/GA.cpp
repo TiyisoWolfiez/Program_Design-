@@ -53,3 +53,6 @@ Chromosome** GA::crossOver(Chromosome* c1, Chromosome* c2){
     crossOverPopulation[1] = new Chromosome(c2->crossOver(c1));
     return crossOverPopulation;
 }
+Chromosome* GA::mutate(Chromosome* c1){
+    return c1->mutate();
+}
