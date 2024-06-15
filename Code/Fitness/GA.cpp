@@ -112,3 +112,12 @@ double GA::calculateVariance(){
     myArray = NULL;
     return numUnique/length_Array;
 }
+void GA::setPopulation(Chromosome** geneticAlgorithm){
+    const int length_Array = this->populationSize;
+    this->population = new Chromosome*[length_Array];
+    for(int k_iterator=0;k_iterator<length_Array;k_iterator++){
+        if(geneticAlgorithm[k_iterator]!=NULL){
+            this->population[k_iterator]=new Chromosome(geneticAlgorithm[k_iterator]->getGenes(),geneticAlgorithm[k_iterator]->getNumGenes());
+        }
+    }
+}    
