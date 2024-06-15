@@ -56,3 +56,13 @@ Chromosome** GA::crossOver(Chromosome* c1, Chromosome* c2){
 Chromosome* GA::mutate(Chromosome* c1){
     return c1->mutate();
 }
+double GA::calculateAvgAccuracy(FitnessFunction* fitnessFunction){
+    double avgAccuracy = 0;
+    const int length_Array = this->populationSize;
+    for(int k_iterator=0;k_iterator<length_Array;k_iterator++){
+        if(this->population[k_iterator]!=NULL){
+            avgAccuracy+=this->population[k_iterator]->fitness(fitnessFunction, this->population[k_iterator], this->population[k_iterator]->getNumGenes());
+        }
+    }
+    return avgAccuracy/length_Array;
+}
