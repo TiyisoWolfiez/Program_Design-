@@ -47,3 +47,9 @@ double** GA::run(FitnessFunction* fitnessFunction, int numGenerations){
     }
     return results;
 }
+Chromosome** GA::crossOver(Chromosome* c1, Chromosome* c2){
+    Chromosome** crossOverPopulation = new Chromosome*[2];
+    crossOverPopulation[0] = new Chromosome(c1->crossOver(c2));
+    crossOverPopulation[1] = new Chromosome(c2->crossOver(c1));
+    return crossOverPopulation;
+}
