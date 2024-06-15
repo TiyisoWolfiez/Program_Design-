@@ -34,3 +34,16 @@ GA::~GA(){
     this->populationSize=0;
     this->selectionSize=0;
 }
+double** GA::run(FitnessFunction* fitnessFunction, int numGenerations){
+    double **results = new double*[numGenerations];
+    for(int t_iterator=0;t_iterator<numGenerations;t_iterator++){
+        results[t_iterator] = new double[3];
+    }
+    for(int t_iterator=0;t_iterator<numGenerations;t_iterator++){
+        this->setPopulation(this->run(fitnessFunction));
+        results[t_iterator][0]=this->calculateAvgAccuracy(fitnessFunction);
+        results[t_iterator][1]=this->calculateStd(fitnessFunction);
+        results[t_iterator][2]=this->calculateVariance();
+    }
+    return results;
+}
