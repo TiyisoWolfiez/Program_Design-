@@ -180,3 +180,27 @@ Chromosome** GA::run(FitnessFunction* fitnessFunction){
     delete [] offspring;
     return newPopulation;
 }
+Chromosome** GA::selection(FitnessFunction* fitnessFunction){
+    const int length_Array = this->populationSize;
+    int indexInsert = 0;
+    double insertValue = 0;
+    double *fitnessValues = new double[populationSize];
+    Chromosome** newPopulation = new Chromosome*[length_Array];
+    for(int k_iterator = 0;k_iterator<length_Array;k_iterator++){
+        newPopulation[k_iterator] = population[k_iterator];
+        fitnessValues[k_iterator] = population[k_iterator]->fitness(fitnessFunction, population[k_iterator], population[k_iterator]->getNumGenes());
+    }
+    for(int k_iterator = 0;k_iterator<length_Array;k_iterator++){
+        insertValue = fitnessValues[k_iterator];
+        Chromosome* myChrome = newPopulation[k_iterator];
+        indexInsert = k_iterator-1;
+        while(indexInsert>=0 && fitnessValues[indexInsert]<insertValue){
+            fitnessValues[indexInsert+1] = fitnessValues[indexInsert];
+            newPopulation[indexInsert+1] = newPopulation[indexInsert];
+            indexInsert--;
+        }
+        fitnessValues[indexInsert+1] = insertValue;
+        newPopulation[indexInsert+1] = myChrome;
+    }
+    return newPopulation;
+}
