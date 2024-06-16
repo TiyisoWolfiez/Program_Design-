@@ -204,3 +204,14 @@ Chromosome** GA::selection(FitnessFunction* fitnessFunction){
     }
     return newPopulation;
 }
+Chromosome** GA::inverseSelection(FitnessFunction* fitnessFunction){
+    const int length_Array = this->populationSize;
+    const int length_Array2 = 2*this->populationSize;
+    int indexInsert = 0;
+    Chromosome** newPopulation = new Chromosome*[populationSize];
+    for(int k_iterator = length_Array-1;k_iterator>=(2*length_Array)-length_Array2;){
+        newPopulation[indexInsert] = selection(fitnessFunction)[k_iterator--];
+        indexInsert++;
+    }
+    return newPopulation;
+}
