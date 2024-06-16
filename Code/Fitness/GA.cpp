@@ -127,3 +127,56 @@ void GA::setPopulation(Chromosome** geneticAlgorithm){
 /******************** The Selection Function Is Basically the InsertionSort *********************/
 /********* The inverseSelection Function Is also InsertionSort in Ascending Order ***************/
 /************************************************************************************************/
+Chromosome** GA::run(FitnessFunction* fitnessFunction){
+    Chromosome** winners = selection(fitnessFunction);
+    Chromosome** losers = inverseSelection(fitnessFunction);
+    const int length_Array = this->populationSize;
+    const int length_Array2 = this->selectionSize;
+    Chromosome** offspring = new Chromosome*[3*length_Array2];
+    Chromosome** newPopulation = new Chromosome*[length_Array];
+    for(int k_iterator=0;k_iterator<2*length_Array2;k_iterator++){
+        Chromosome** nChromosomes = crossOver(winners[k_iterator], winners[k_iterator+1]);
+        offspring[k_iterator] = nChromosomes[0];
+        offspring[k_iterator+1] = nChromosomes[1];
+        k_iterator++;
+        for(int t_iterator = 0; t_iterator<2; t_iterator++){
+            nChromosomes[t_iterator] = NULL;
+            delete nChromosomes[t_iterator];
+        }
+        nChromosomes = NULL;
+        delete[] nChromosomes;
+    }
+    for(int k_iterator=0;k_iterator<length_Array2;k_iterator++){
+        offspring[k_iterator+2*length_Array2] = new Chromosome(mutate(winners[k_iterator+2*length_Array2]));
+    }
+    newPopulation = population;
+    for(int k_iterator=0;k_iterator<3*length_Array2;k_iterator++){
+        Chromosome* dyingChromosome = losers[k_iterator];
+        for(int t_iterator = 0; t_iterator<length_Array; t_iterator++){
+            if(newPopulation[t_iterator] == dyingChromosome){
+                newPopulation[t_iterator] = new Chromosome(offspring[k_iterator]);
+                break;
+            }
+        }
+        delete dyingChromosome;
+    }
+    for(int k_iterator=0;k_iterator<length_Array;k_iterator++){
+        winners[k_iterator] = NULL;
+        delete winners[k_iterator];
+    }
+    winners = NULL;
+    delete [] winners;
+    for(int k_iterator=0;k_iterator<length_Array;k_iterator++){
+        losers[k_iterator] = NULL;
+        delete losers[k_iterator];
+    }
+    losers = NULL;
+    delete [] losers;
+    for(int k_iterator=0;k_iterator<3*length_Array2;k_iterator++){
+        offspring[k_iterator] = NULL;
+        delete offspring[k_iterator];
+    }
+    offspring = NULL;
+    delete [] offspring;
+    return newPopulation;
+}
