@@ -121,3 +121,9 @@ void GA::setPopulation(Chromosome** geneticAlgorithm){
         }
     }
 }    
+/************************************************************************************************/
+/***************************** The Problem Starts Here:= ****************************************/
+/****************** They work for a single chromosome but fails on a benchmark ******************/
+/******************** The Selection Function Is Basically the InsertionSort *********************/
+/********* The inverseSelection Function Is also InsertionSort in Ascending Order ***************/
+/************************************************************************************************/
