@@ -47,3 +47,6 @@ private:
 
 double * vector; // the vector array
 unsigned size; // # size
+};
+
+#endif
