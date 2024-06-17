@@ -41,3 +41,5 @@ const Vector& operator=(const Vector& rhs);
 
 private:
   // Insert helper function signatures if necessary
+
+double * vector; // the vector array
