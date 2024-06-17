@@ -11,3 +11,6 @@ class Vector : public Arithmetic
   Vector(unsigned s);
   Vector(const Vector& rhs);
   ~Vector();
+
+void print();
+void readFile(istream &infile);
