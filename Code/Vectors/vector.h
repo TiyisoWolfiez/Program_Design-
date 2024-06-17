@@ -1,3 +1,6 @@
+#ifndef ASSIGNMENT2TEST_VECTOR_H
+#define ASSIGNMENT2TEST_VECTOR_H
+
 #include <iostream>
 #include "arithmetic.h"
 #include <fstream>
