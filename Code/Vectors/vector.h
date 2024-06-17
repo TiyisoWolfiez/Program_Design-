@@ -8,3 +8,5 @@ class Vector : public Arithmetic
 {
   friend Vector operator* (const double&, const Vector&);
  public:
+  Vector(unsigned s);
+  Vector(const Vector& rhs);
