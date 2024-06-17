@@ -43,3 +43,4 @@ private:
   // Insert helper function signatures if necessary
 
 double * vector; // the vector array
+unsigned size; // # size
