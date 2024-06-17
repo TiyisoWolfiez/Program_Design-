@@ -29,3 +29,4 @@ const Vector& operator=(const Vector& rhs);
 
 // Vector/scalar operations
   Vector operator*(const double& rhs);
+  Vector& operator*=(const double& rhs);
