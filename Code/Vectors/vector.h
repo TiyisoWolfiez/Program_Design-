@@ -10,3 +10,4 @@ class Vector : public Arithmetic
  public:
   Vector(unsigned s);
   Vector(const Vector& rhs);
+  ~Vector();
