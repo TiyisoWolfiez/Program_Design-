@@ -38,3 +38,6 @@ const Vector& operator=(const Vector& rhs);
 
 // Getters and setters:
   unsigned getSize() const; // Return number of rows
+
+private:
+  // Insert helper function signatures if necessary
