@@ -26,3 +26,6 @@ const Vector& operator=(const Vector& rhs);
   Vector operator^(int pow);
   Vector& operator^=(int pow);
   Vector operator~(); // reverse
+
+// Vector/scalar operations
+  Vector operator*(const double& rhs);
