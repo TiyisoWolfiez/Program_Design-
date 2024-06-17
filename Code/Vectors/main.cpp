@@ -111,3 +111,37 @@ static void task2() {
 
     infile.close();
 }
+static void task3() {
+    //////////////////////////////////
+    // The rest is linear equations //
+    //////////////////////////////////
+    ifstream infile("task3Input.txt");
+
+    cout << "Reading matrices..." << endl;
+    Matrix system(3,3), augmented(3,1);
+    system.readFile(infile);
+    augmented.readFile(infile);
+
+    Matrix A = system;
+    Matrix b = augmented;
+
+    A.print();
+    b.print();
+
+    cout << "Reducing to upper-triangular form:" << endl;
+
+    A |= b;
+
+    A.print();
+    b.print();
+
+    cout << "Solving the system:" << endl;
+    Matrix c = A|b;
+    c.print();
+
+    cout << "Reducing to upper-triangular form AND solving the system:" << endl;
+    c = system|augmented;
+    c.print();
+
+    infile.close();
+}
