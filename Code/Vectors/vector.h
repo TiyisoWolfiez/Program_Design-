@@ -14,3 +14,6 @@ class Vector : public Arithmetic
 
 void print();
 void readFile(istream &infile);
+
+// Insert overloaded = operator signature
+const Vector& operator=(const Vector& rhs);
