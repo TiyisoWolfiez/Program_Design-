@@ -70,3 +70,44 @@ static void task1() {
 
     infile.close();
 }
+
+static void task2() {
+
+    // Matrix Arithmeitc:
+    // The test code below assumes that you have implemented all Task 2 functionality.
+    // ------------------------------------------------------------------------------
+    // NOTE: The examples below are illustrative, NOT exhaustive. You must extend the
+    // provided code with your own tests. Trigger every exception, make sure all corner
+    // cases work. Test all operators!
+    ifstream infile("example_input.txt");
+
+    cout << "Matrix arithmetic" << endl;
+    Matrix *m1 = new Matrix(2, 6);
+    m1->readFile(infile);
+    m1->print();
+    // Scalar * matrix
+    cout << "Matrix Multiplication by scalar:" << endl;
+    m1->operator*(3.5).print();
+    m1->operator*=(2);
+    m1->print();
+
+    cout << "Vector Multiplication by scalar:" << endl;
+    Vector *vec1 = new Vector(5);
+    vec1->readFile(infile);
+    vec1->print();
+
+    vec1->operator*(3.5).print();
+    vec1->operator*=(2);
+    vec1->print();
+
+
+    // Scalar / matrix
+    cout << "Division by scalar:" << endl;
+    try {
+        m1->operator/(7.2).print();
+        m1->operator/(0).print();
+    } // should trigger exception
+    catch(const char * err) { cout << err << endl; }
+
+    infile.close();
+}
