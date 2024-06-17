@@ -34,3 +34,4 @@ const Vector& operator=(const Vector& rhs);
 
 // Access the individual elements
   double& operator[](const unsigned r);
+  const double& operator[](const unsigned r) const;
