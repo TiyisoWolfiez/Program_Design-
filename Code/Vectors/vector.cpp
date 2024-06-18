@@ -113,5 +113,8 @@ Vector Vector::operator-(const Vector& rhs)
 }
 Vector& Vector::operator-=(const Vector& rhs)
 {
-	
+	if(this->getSize() != rhs.getSize())
+	{
+		throw "Error: subtracting vectors of different dimensionality";
+	}
 }
