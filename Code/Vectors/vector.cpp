@@ -19,3 +19,7 @@ Vector::Vector(unsigned s)
 		this->vector[c] = 0;
 	}
 }
+Vector::Vector(const Vector& rhs)
+{
+	this->size = rhs.getSize();
+	this->vector = new double[this->getSize()];
