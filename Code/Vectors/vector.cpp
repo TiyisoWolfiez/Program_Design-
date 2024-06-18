@@ -66,3 +66,4 @@ const Vector& Vector::operator=(const Vector& rhs)
 // Vector mathematical operations
 Vector Vector::operator+(const Vector& rhs)
 {
+}
