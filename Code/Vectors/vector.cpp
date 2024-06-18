@@ -88,6 +88,9 @@ Vector& Vector::operator+=(const Vector& rhs)
 	}
 	else
 	{
-		
+		for(int Index=0; Index<rhs.getSize(); Index++)
+		{
+			this->vector[ Index]=this->vector[ Index]+rhs.vector[ Index];
+		}
 	}
 }
