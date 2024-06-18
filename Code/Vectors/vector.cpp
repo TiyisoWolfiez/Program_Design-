@@ -117,4 +117,11 @@ Vector& Vector::operator-=(const Vector& rhs)
 	{
 		throw "Error: subtracting vectors of different dimensionality";
 	}
+	else
+	{
+		for(int Index=0; Index<rhs.getSize(); Index++)
+		{
+			this->vector[ Index]=this->vector[ Index]-rhs.vector[ Index];
+		}
+	}
 }
