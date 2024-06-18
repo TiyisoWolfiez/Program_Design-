@@ -53,4 +53,7 @@ void Vector::readFile(istream &infile)
 // Insert overloaded = operator signature
 const Vector& Vector::operator=(const Vector& rhs)
 {
+	if(this == &rhs) return *this;
+	this->size = rhs.getSize();
+	this->vector = new double[this->getSize()];
 }
