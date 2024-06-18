@@ -42,3 +42,10 @@ void Vector::print()
 	}
 	std::cout<<"\n";
 }
+void Vector::readFile(istream &infile)
+{
+	for(int G=0;G<this->getSize();G++)
+	{ 	
+		infile>>this->vector[G];
+	}
+}
