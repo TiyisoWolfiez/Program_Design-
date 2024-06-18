@@ -28,3 +28,8 @@ Vector::Vector(const Vector& rhs)
 		this->vector[c] = rhs.vector[c];
 	}
 }
+Vector::~Vector()
+{
+	delete [] this->vector;
+	this->vector = NULL;
+}
