@@ -56,4 +56,9 @@ const Vector& Vector::operator=(const Vector& rhs)
 	if(this == &rhs) return *this;
 	this->size = rhs.getSize();
 	this->vector = new double[this->getSize()];
+	for(int c=0;c<this->getSize();c++)
+	{
+		this->vector[c] = rhs.vector[c];
+	}
+	return *this;
 }
