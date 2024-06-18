@@ -95,3 +95,7 @@ Vector& Vector::operator+=(const Vector& rhs)
 	}
 	return *this;
 }
+Vector Vector::operator-(const Vector& rhs)
+{
+	
+}
