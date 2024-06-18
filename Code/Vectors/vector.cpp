@@ -71,4 +71,12 @@ Vector Vector::operator+(const Vector& rhs)
 	{
 		throw "Error: adding vectors of different dimensionality";
 	}
+	else
+	{
+		for(int Index=0; Index<rhs.getSize(); Index++)
+		{
+			Mat_Array.vector[ Index]=this->vector[ Index]+rhs.vector[ Index];
+		}
+	}
+	return Mat_Array;
 }
