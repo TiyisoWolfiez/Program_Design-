@@ -35,5 +35,10 @@ Vector::~Vector()
 }
 void Vector::print()
 {
-	
+	for(int G=0;G<this->getSize();G++)
+	{	
+		std::cout<<setw(10);
+		std::cout<<this->vector[G]<<setprecision(3);
+	}
+	std::cout<<"\n";
 }
