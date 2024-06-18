@@ -49,3 +49,7 @@ void Vector::readFile(istream &infile)
 		infile>>this->vector[G];
 	}
 }
+
+// Insert overloaded = operator signature
+const Vector& Vector::operator=(const Vector& rhs)
+{
