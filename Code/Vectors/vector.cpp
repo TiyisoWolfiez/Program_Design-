@@ -86,4 +86,8 @@ Vector& Vector::operator+=(const Vector& rhs)
 	{
 		throw "Error: adding vectors of different dimensionality";
 	}
+	else
+	{
+		
+	}
 }
