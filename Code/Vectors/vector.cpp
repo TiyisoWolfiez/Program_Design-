@@ -23,3 +23,8 @@ Vector::Vector(const Vector& rhs)
 {
 	this->size = rhs.getSize();
 	this->vector = new double[this->getSize()];
+	for(int c=0;c<this->getSize();c++)
+	{
+		this->vector[c] = rhs.vector[c];
+	}
+}
