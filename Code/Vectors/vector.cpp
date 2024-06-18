@@ -80,3 +80,7 @@ Vector Vector::operator+(const Vector& rhs)
 	}
 	return Mat_Array;
 }
+Vector& Vector::operator+=(const Vector& rhs)
+{
+	
+}
