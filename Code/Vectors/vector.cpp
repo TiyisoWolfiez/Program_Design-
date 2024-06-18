@@ -98,4 +98,8 @@ Vector& Vector::operator+=(const Vector& rhs)
 Vector Vector::operator-(const Vector& rhs)
 {
 	Vector Mat_Array(rhs.getSize());
+	if(this->getSize() != rhs.getSize())
+	{
+		throw "Error: subtracting vectors of different dimensionality";
+	}
 }
