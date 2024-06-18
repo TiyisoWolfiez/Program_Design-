@@ -82,5 +82,8 @@ Vector Vector::operator+(const Vector& rhs)
 }
 Vector& Vector::operator+=(const Vector& rhs)
 {
-	
+	if(this->getSize() != rhs.getSize())
+	{
+		throw "Error: adding vectors of different dimensionality";
+	}
 }
