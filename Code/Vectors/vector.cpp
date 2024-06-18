@@ -33,3 +33,7 @@ Vector::~Vector()
 	delete [] this->vector;
 	this->vector = NULL;
 }
+void Vector::print()
+{
+	
+}
