@@ -53,3 +53,4 @@ void Vector::readFile(istream &infile)
 // Insert overloaded = operator signature
 const Vector& Vector::operator=(const Vector& rhs)
 {
+}
