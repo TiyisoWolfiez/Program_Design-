@@ -109,4 +109,5 @@ Vector Vector::operator-(const Vector& rhs)
 			Mat_Array.vector[ Index]=this->vector[ Index]-rhs.vector[ Index];
 		}
 	}
+	return Mat_Array;
 }
