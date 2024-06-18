@@ -66,4 +66,9 @@ const Vector& Vector::operator=(const Vector& rhs)
 // Vector mathematical operations
 Vector Vector::operator+(const Vector& rhs)
 {
+	Vector Mat_Array(rhs.getSize());
+	if(this->getSize() != rhs.getSize())
+	{
+		throw "Error: adding vectors of different dimensionality";
+	}
 }
