@@ -97,5 +97,5 @@ Vector& Vector::operator+=(const Vector& rhs)
 }
 Vector Vector::operator-(const Vector& rhs)
 {
-	
+	Vector Mat_Array(rhs.getSize());
 }
