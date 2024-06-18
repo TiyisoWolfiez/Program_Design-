@@ -62,3 +62,7 @@ const Vector& Vector::operator=(const Vector& rhs)
 	}
 	return *this;
 }
+
+// Vector mathematical operations
+Vector Vector::operator+(const Vector& rhs)
+{
