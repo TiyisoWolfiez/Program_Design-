@@ -10,3 +10,12 @@ Vector operator*(const double& multipler, const Vector& rhs)
 	}
 	return obj;
 }
+Vector::Vector(unsigned s)
+{
+	this->size = s;
+	this->vector = new double[this->getSize()];
+	for(int c=0;c<this->getSize();c++)
+	{
+		this->vector[c] = 0;
+	}
+}
