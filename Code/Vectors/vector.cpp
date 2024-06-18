@@ -93,4 +93,5 @@ Vector& Vector::operator+=(const Vector& rhs)
 			this->vector[ Index]=this->vector[ Index]+rhs.vector[ Index];
 		}
 	}
+	return *this;
 }
