@@ -248,3 +248,7 @@ double& Vector::operator[](const unsigned r)
 const double& Vector::operator[](const unsigned r) const{
 	return this->vector[r];
 }
+// Getters and setters:
+unsigned Vector::getSize() const{
+	return this->size;
+} // Return number of rows
