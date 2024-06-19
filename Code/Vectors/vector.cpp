@@ -216,3 +216,11 @@ Vector Vector::operator*(const double& rhs)
 	}
 	return Mat_Array;
 }
+Vector& Vector::operator*=(const double& rhs)
+{
+	for(int Index=0; Index<this->getSize(); Index++)
+	{
+		this->vector[ Index]=this->vector[ Index]*rhs;
+	}
+	return *this;
+}
