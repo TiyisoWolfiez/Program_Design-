@@ -252,3 +252,12 @@ const double& Vector::operator[](const unsigned r) const{
 unsigned Vector::getSize() const{
 	return this->size;
 } // Return number of rows
+Vector Vector::operator~()
+{
+	Vector Mat_Array(this->getSize());
+	for(int Index=0; Index<this->getSize(); Index++)
+	{
+		Mat_Array.vector[Index] = this->vector[(this->getSize()-1)-Index];
+	}
+    return Mat_Array;
+} // reverse
