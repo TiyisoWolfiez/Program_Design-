@@ -206,3 +206,13 @@ Vector& Vector::operator^=(int pow)
 	}
 	return *this;
 }
+// Vector/scalar operations
+Vector Vector::operator*(const double& rhs)
+{
+	Vector Mat_Array(this->getSize());
+	for(int Index=0; Index<this->getSize(); Index++)
+	{
+		Mat_Array.vector[ Index]=this->vector[ Index]*rhs;
+	}
+	return Mat_Array;
+}
