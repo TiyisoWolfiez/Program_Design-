@@ -240,3 +240,11 @@ Vector Vector::operator/(const double& rhs)
 	}
 	return Mat_Array;
 }
+// Access the individual elements
+double& Vector::operator[](const unsigned r)
+{
+	return this->vector[r];
+}
+const double& Vector::operator[](const unsigned r) const{
+	return this->vector[r];
+}
