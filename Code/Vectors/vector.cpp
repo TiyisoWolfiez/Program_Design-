@@ -224,3 +224,19 @@ Vector& Vector::operator*=(const double& rhs)
 	}
 	return *this;
 }
+Vector Vector::operator/(const double& rhs)
+{
+	Vector Mat_Array(this->getSize());
+	if(rhs==0)
+	{
+		throw "Error: division by zero";
+	}
+	else
+	{
+		for(int Index=0; Index<this->getSize(); Index++)
+		{
+			Mat_Array.vector[ Index]=this->vector[ Index]/rhs;
+		}
+	}
+	return Mat_Array;
+}
