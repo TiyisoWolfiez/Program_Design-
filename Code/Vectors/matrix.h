@@ -18,3 +18,17 @@ class Matrix : public Arithmetic
 
   void print();
   void readFile(istream &infile);
+
+// Insert overloaded = operator signature
+  const Matrix& operator=(const Matrix& rhs);
+
+  // Matrix mathematical operations
+  Matrix operator+(const Matrix& rhs);
+  Matrix& operator+=(const Matrix& rhs);
+  Matrix operator-(const Matrix& rhs);
+  Matrix& operator-=(const Matrix& rhs);
+  Matrix operator*(const Matrix& rhs);
+  Matrix& operator*=(const Matrix& rhs);
+  Matrix operator^(int pow);
+  Matrix& operator^=(int pow);
+  Matrix operator~(); // transpose
