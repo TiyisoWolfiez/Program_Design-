@@ -12,3 +12,9 @@ class Matrix : public Arithmetic
   friend Matrix operator* (const double&, const Matrix&);
   
  public:
+  Matrix(unsigned r, unsigned c);
+  Matrix(const Matrix& rhs);
+  ~Matrix();
+
+  void print();
+  void readFile(istream &infile);
