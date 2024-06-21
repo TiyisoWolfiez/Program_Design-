@@ -37,3 +37,8 @@ class Matrix : public Arithmetic
   Matrix operator*(const double& rhs);
   Matrix& operator*=(const double& rhs);
   Matrix operator/(const double& rhs);
+
+// Access the individual elements
+  double& operator()(const unsigned r, const unsigned c);
+  const double& operator()(const unsigned r, const unsigned c) const;
+  Vector operator[](const unsigned r) const;
