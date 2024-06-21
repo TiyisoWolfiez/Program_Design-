@@ -42,3 +42,7 @@ class Matrix : public Arithmetic
   double& operator()(const unsigned r, const unsigned c);
   const double& operator()(const unsigned r, const unsigned c) const;
   Vector operator[](const unsigned r) const;
+
+// Getters and setters:
+  unsigned getRows() const; // Return number of rows
+  unsigned getCols() const; // Return number of columns
