@@ -32,3 +32,8 @@ class Matrix : public Arithmetic
   Matrix operator^(int pow);
   Matrix& operator^=(int pow);
   Matrix operator~(); // transpose
+
+ // Matrix/scalar operations
+  Matrix operator*(const double& rhs);
+  Matrix& operator*=(const double& rhs);
+  Matrix operator/(const double& rhs);
