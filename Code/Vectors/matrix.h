@@ -4,3 +4,5 @@
 #include "arithmetic.h"
 #include "vector.h"
 #include <fstream>
+
+using namespace std;
