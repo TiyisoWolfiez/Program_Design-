@@ -46,3 +46,17 @@ class Matrix : public Arithmetic
 // Getters and setters:
   unsigned getRows() const; // Return number of rows
   unsigned getCols() const; // Return number of columns
+
+// Linear equations:
+  Matrix operator|(const Matrix& rhs);
+  Matrix& operator|=(Matrix& rhs);
+
+ private:
+  // Insert helper function signatures if necessary
+
+  double ** matrix; // the matrix array
+  unsigned rows; // # rows
+  unsigned cols; // # columns
+};
+
+#endif
