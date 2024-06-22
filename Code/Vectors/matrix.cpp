@@ -102,3 +102,24 @@ const Matrix& Matrix::operator=(const Matrix& rhs)
 	}
 	return *this;
 }
+
+// Matrix mathematical operations
+Matrix Matrix::operator+(const Matrix& rhs)
+{
+	if(this->rows != rhs.getRows() || this->cols!=rhs.getCols())
+	{	
+		throw "Error: adding matrices of different dimensionality";
+	}
+	else
+	{
+		Matrix Mat_Array( rhs.getRows(), rhs.getCols());
+		for(int counter=0;counter<rhs.getRows();counter++)
+		{
+			for(int Index=0; Index<rhs.getCols(); Index++)
+			{
+				Mat_Array.matrix[counter][ Index]=this->matrix[counter][ Index]+rhs.matrix[counter][ Index];
+			}
+		}
+		return Mat_Array;
+	}
+}
