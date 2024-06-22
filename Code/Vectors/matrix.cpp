@@ -49,3 +49,16 @@ Matrix::Matrix(const Matrix& rhs)
 		}
 	}
 }
+Matrix::~Matrix()
+{
+	if(this->matrix!=NULL)
+	{
+		for(int V=0;V<getRows();V++)
+		{
+			delete [] this->matrix[V];
+			this->matrix[V] = NULL;
+		}
+		delete [] this->matrix;
+		this->matrix = NULL;
+	}
+}
