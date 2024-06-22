@@ -72,3 +72,12 @@ void Matrix::print()
 		std::cout<<"\n";
 	}
 }
+void Matrix::readFile(istream &infile)
+{
+	for(int U=0;U<this->getRows();U++)
+	{	for(int G=0;G<this->getCols();G++)
+		{
+			infile>>this->matrix[U][G];
+		}
+	}
+}
