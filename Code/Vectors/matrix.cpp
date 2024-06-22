@@ -62,3 +62,13 @@ Matrix::~Matrix()
 		this->matrix = NULL;
 	}
 }
+void Matrix::print()
+{
+	for(int U=0;U<this->getRows();U++)
+	{	for(int G=0;G<this->getCols();G++)
+		{	std::cout<<setw(10);
+			std::cout<<this->matrix[U][G]<<setprecision(3);
+		}
+		std::cout<<"\n";
+	}
+}
