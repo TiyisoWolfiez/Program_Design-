@@ -32,3 +32,20 @@ Matrix::Matrix(unsigned r, unsigned c)
 		}
 	}
 }
+Matrix::Matrix(const Matrix& rhs)
+{
+	this->rows=rhs.rows;
+	this->cols=rhs.cols;
+	this->matrix=new double*[rows];
+	for(int F=0;F<this->rows;F++)
+	{
+		this->matrix[F]=new double [this->cols];
+	}
+	for(int B=0;B<this->rows;B++)
+	{
+		for(int v=0;v<this->cols;v++)
+		{
+			this->matrix[B][v]=rhs.matrix[B][v];
+		}
+	}
+}
