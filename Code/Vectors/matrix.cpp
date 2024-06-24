@@ -204,3 +204,42 @@ Matrix Matrix::operator*(const Matrix& rhs)
 		return Temp;
 	}
 }
+Matrix& Matrix::operator*=(const Matrix& rhs)
+{
+	if(this->cols!=rhs.getRows())
+	{
+		throw "Error: invalid matrix multiplication";
+	}
+	else
+	{
+		Matrix Temp(rhs.getRows(),this->cols);
+		for(int counter=0;counter<this->getRows();counter++)
+		{
+			for(int Index=0; Index<rhs.getCols(); Index++)
+			{
+				double Temp2 = 0;
+				for(int Index2=0; Index2<rhs.getRows(); Index2++)
+				{
+					Temp2=this->matrix[counter][ Index2]*rhs.matrix[Index2][ Index];
+				}
+				Temp.matrix[counter][Index] = Temp2;
+			}
+		}
+		delete this->matrix;
+		this->cols = Temp.getCols();
+		this->rows = Temp.getRows();
+		this->matrix = new double*[this->rows];
+		for(int F=0;F<this->rows;F++)
+		{
+			matrix[F]=new double [this->cols];
+		}
+		for(int B=0;B<this->rows;B++)
+		{
+			for(int v=0;v<this->cols;v++)
+			{
+				matrix[B][v]=Temp.matrix[B][v];
+			}
+		}
+	}
+	return *this;
+}
