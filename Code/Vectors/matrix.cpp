@@ -180,3 +180,27 @@ Matrix& Matrix::operator-=(const Matrix& rhs)
 		return *this;
 	}
 }
+Matrix Matrix::operator*(const Matrix& rhs)
+{
+	if(this->cols!=rhs.getRows())
+	{
+		throw "Error: invalid matrix multiplication";
+	}
+	else
+	{
+		Matrix Temp(rhs.getRows(),this->cols);
+		for(int counter=0;counter<this->getRows();counter++)
+		{
+			for(int Index=0; Index<rhs.getCols(); Index++)
+			{
+				double Temp2 = 0;
+				for(int Index2=0; Index2<rhs.getRows(); Index2++)
+				{
+					Temp2=this->matrix[counter][ Index2]*rhs.matrix[Index2][ Index];
+				}
+				Temp.matrix[counter][Index] = Temp2;
+			}
+		}
+		return Temp;
+	}
+}
