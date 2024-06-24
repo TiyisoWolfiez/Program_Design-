@@ -243,3 +243,59 @@ Matrix& Matrix::operator*=(const Matrix& rhs)
 	}
 	return *this;
 }
+Matrix Matrix::operator^(int pow)
+{
+	Matrix Mat_Array2(*this);
+	if(this->getRows()!=this->getCols())
+	{
+		throw "Error: non-square matrix provided";
+    }
+	else if(pow<0)
+	{
+		throw "Error: negative power is not supported";
+    }
+	else
+	{
+		if(pow==0)
+		{
+			Matrix Mat_Array(this->getRows(),this->getCols());
+			for(int counter=0; counter<this->getRows(); counter++)
+			{
+				for(int Index=0;Index<this->getCols();Index++)
+				{
+					if(counter==Index)
+					{
+						Mat_Array.matrix[counter][Index]=1;
+					}
+					else
+					{
+						Mat_Array.matrix[counter][Index]=0;
+					}
+				}
+			}
+			return Mat_Array;
+		}
+		else if(pow==1)
+		{
+			return Mat_Array2;
+		}
+		else if(pow>1)
+		{
+			Matrix Mat_Array(this->getRows(),this->getCols());
+			for(int counter=0; counter<this->getRows(); counter++)
+			{
+				for(int Index=0;Index<this->getCols();Index++)
+				{
+					Mat_Array.matrix[counter][Index]=this->matrix[counter][Index];
+				}
+			}
+			Matrix Mat_Two=Mat_Array;
+			for(int Index=0;Index<(pow-1);Index++)
+			{
+				Mat_Array=Mat_Array*Mat_Two;
+			}
+			return Mat_Array;
+		}
+	}
+	return Mat_Array2;
+}
