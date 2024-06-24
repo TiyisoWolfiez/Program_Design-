@@ -162,3 +162,21 @@ Matrix Matrix::operator-(const Matrix& rhs)
 		return Mat_Array;
 	}
 }
+Matrix& Matrix::operator-=(const Matrix& rhs)
+{
+	if(this->rows != rhs.getRows() || this->cols!=rhs.getCols())
+	{
+		throw "Error: subtracting matrices of different dimensionality";
+	}
+	else
+	{
+		for(int counter=0;counter<rhs.getRows();counter++)
+		{
+			for(int Index=0; Index<rhs.getCols(); Index++)
+			{
+				this->matrix[counter][ Index]=this->matrix[counter][ Index]-rhs.matrix[counter][ Index];
+			}
+		}
+		return *this;
+	}
+}
