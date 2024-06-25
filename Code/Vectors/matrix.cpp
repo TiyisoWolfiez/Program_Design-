@@ -441,3 +441,7 @@ unsigned Matrix::getRows() const
 {
 	return rows;
 } // Return number of rows
+unsigned Matrix::getCols() const
+{
+	return cols;
+} // Return number of columns
