@@ -359,3 +359,16 @@ Matrix& Matrix::operator^=(int pow)
 	}
 	return *this;
 }
+// Matrix/scalar operations
+Matrix Matrix::operator*(const double& rhs)
+{
+	Matrix Mat_Array( this->getRows(), this->getCols() );
+	for(int counter=0; counter<this->getRows(); counter++)
+	{
+		for(int Index=0;Index<this->getCols();Index++)
+		{
+			Mat_Array.matrix[ counter][Index]=this->matrix[ counter][Index]*rhs;
+		}
+	}
+	return Mat_Array;
+}
