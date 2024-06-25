@@ -445,3 +445,16 @@ unsigned Matrix::getCols() const
 {
 	return cols;
 } // Return number of columns
+//  Matrix transpose
+Matrix Matrix::operator~()
+{
+	Matrix Temp(this->getCols(), this->getRows());
+	for(int Dj=0;Dj<this->getRows();Dj++)
+	{
+		for(int Counter=0;Counter<this->getCols();Counter++)
+		{
+			Temp.matrix[Dj][Counter]=this->matrix[Counter][Dj];
+		}
+	}
+	return Temp;
+} // transpose
