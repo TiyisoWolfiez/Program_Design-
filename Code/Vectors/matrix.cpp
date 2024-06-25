@@ -402,3 +402,16 @@ Matrix Matrix::operator/(const double& rhs)
 		return Mat_Array;
 	}
 }
+// Access the individual elements
+double& Matrix::operator()(const unsigned r, const unsigned c)
+{
+	if(r<0 || r>=this->rows)
+	{
+		throw "Error: invalid row index";
+	}
+	else if(c<0 || c>=this->cols)
+	{
+		throw "Error: invalid column index";
+	}
+	return matrix[r][c];
+}
