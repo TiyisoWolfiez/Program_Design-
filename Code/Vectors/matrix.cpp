@@ -427,3 +427,12 @@ const double& Matrix::operator()(const unsigned r, const unsigned c) const
 	}
 	return matrix[r][c];
 }
+Vector Matrix::operator[](const unsigned r) const
+{
+	Vector v1(this->getCols());
+	for(int Cols = 0;Cols<this->getCols();Cols++)
+	{
+		v1[Cols] = this->matrix[r][Cols];
+	}
+	return v1;
+}
