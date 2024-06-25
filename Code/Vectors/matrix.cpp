@@ -372,3 +372,14 @@ Matrix Matrix::operator*(const double& rhs)
 	}
 	return Mat_Array;
 }
+Matrix& Matrix::operator*=(const double& rhs)
+{
+	for(int counter=0; counter<this->getRows(); counter++)
+	{
+		for(int Index=0;Index<this->getCols();Index++)
+		{
+			this->matrix[ counter][Index]=this->matrix[ counter][Index]*rhs;
+		}
+    }
+	return *this;
+}
