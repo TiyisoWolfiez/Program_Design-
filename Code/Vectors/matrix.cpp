@@ -415,3 +415,15 @@ double& Matrix::operator()(const unsigned r, const unsigned c)
 	}
 	return matrix[r][c];
 }
+const double& Matrix::operator()(const unsigned r, const unsigned c) const
+{
+	if(r<0 || r>=this->rows)
+	{
+		throw "Error: invalid row index";
+	}
+	else if(c<0 || c>=this->cols)
+	{
+		throw "Error: invalid column index";
+	}
+	return matrix[r][c];
+}
