@@ -458,3 +458,75 @@ Matrix Matrix::operator~()
 	}
 	return Temp;
 } // transpose
+// Linear equations:
+Matrix Matrix::operator|(const Matrix& rhs)
+{
+	Matrix Temp3(rhs);
+	if(this->getCols() != this->getRows())
+	{
+		throw "Error: non-square matrix provided";
+	}
+	else if(rhs.getCols() != 1)
+	{
+		throw "Error: incorrect augmentation";
+	}
+	else
+	{
+		const int size = rhs.getRows();
+		bool reduced = true;
+		Matrix Temp(*this);
+		Matrix Temp_Vals_2(rhs);
+		for(int j = 0; j<(size-1); j++) 
+		{
+			for(int i = j+1; i<size; i++) 
+			{
+				if(Temp.matrix[i][j] != 0)
+				{
+					reduced = false;
+					break;
+				}
+			}
+		}
+		if(reduced == false)
+		{
+			double m = 0;
+			for(int j = 0; j<(size-1); j++) 
+			{
+				for(int i = j+1; i<size; i++) 
+				{
+					if(Temp.matrix[j][j] == 0)
+					{
+						throw "Error: division by zero";
+					}
+					else
+					{
+						m = Temp.matrix[i][j]/Temp.matrix[j][j];
+						for(int k = 0; k<size; k++)
+						{
+							Temp.matrix[i][k] = Temp.matrix[i][k] - m*Temp.matrix[j][k];
+						}
+						Temp_Vals_2.matrix[i][0] = Temp_Vals_2.matrix[i][0] - m*Temp_Vals_2.matrix[j][0];
+					}
+				}
+			}
+		}
+		//  Performing back-substitution and obtaining solutions.
+		for(int i =size-1; i>=0; i--)
+		{
+			for(int j = i+1; j<size; j++)
+			{
+				Temp_Vals_2.matrix[i][0] = Temp_Vals_2.matrix[i][0] - Temp.matrix[i][j]*Temp_Vals_2.matrix[j][0];
+			}
+			if(Temp.matrix[i][i] == 0)
+			{
+				throw "Error: division by zero";
+			}
+			else
+			{
+				Temp_Vals_2.matrix[i][0] = Temp_Vals_2.matrix[i][0] / Temp.matrix[i][i];
+			}
+		}
+		return Temp_Vals_2;
+	}
+	return Temp3;
+}
