@@ -383,3 +383,22 @@ Matrix& Matrix::operator*=(const double& rhs)
     }
 	return *this;
 }
+Matrix Matrix::operator/(const double& rhs)
+{
+	if(rhs==0)
+	{
+		throw "Error: division by zero";
+	}
+	else
+	{
+		Matrix Mat_Array( this->getRows(), this->getCols() );
+		for(int Dj=0;Dj<this->getRows();Dj++)
+		{
+			for(int Counter=0;Counter<this->getCols();Counter++)
+			{
+				Mat_Array.matrix[Dj][Counter]=this->matrix[Dj][Counter]/rhs;
+			}
+		}
+		return Mat_Array;
+	}
+}
