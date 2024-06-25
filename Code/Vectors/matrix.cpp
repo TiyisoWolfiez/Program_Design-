@@ -436,3 +436,8 @@ Vector Matrix::operator[](const unsigned r) const
 	}
 	return v1;
 }
+// Getters and setters:
+unsigned Matrix::getRows() const
+{
+	return rows;
+} // Return number of rows
