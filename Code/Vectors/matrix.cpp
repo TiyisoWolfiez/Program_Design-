@@ -530,3 +530,39 @@ Matrix Matrix::operator|(const Matrix& rhs)
 	}
 	return Temp3;
 }
+Matrix& Matrix::operator|=(Matrix& rhs)
+{
+	if(this->getCols() != this->getRows())
+	{
+		throw "Error: non-square matrix provided";
+	}
+	else if(rhs.getCols() != 1)
+	{
+		throw "Error: incorrect augmentation";
+	}
+	else
+	{
+		const int size = rhs.getRows();
+		double m = 0;
+		for(int j = 0; j<(size-1); j++) 
+		{
+			for(int i = j+1; i<size; i++) 
+			{
+				if(this->matrix[j][j] == 0)
+				{
+					throw "Error: division by zero";
+				}
+				else
+				{
+					m = this->matrix[i][j]/this->matrix[j][j];
+					for(int k = 0; k<size; k++)
+					{
+						this->matrix[i][k] = this->matrix[i][k] - m*this->matrix[j][k];
+					}
+					rhs.matrix[i][0] = rhs.matrix[i][0] - m*rhs.matrix[j][0];
+				}
+			}
+		}
+	}
+	return *this;
+}
