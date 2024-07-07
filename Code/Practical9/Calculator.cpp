@@ -35,3 +35,10 @@ T Calculator<T>::removeValue(){
     }
     return this->valueStack->pop()->getData();
 }
+template <typename T>
+Operator<T>* Calculator<T>::removeOperator(){
+    if(operatorStack->getTop() == NULL){
+        return NULL;
+    }
+    return this->operatorStack->pop()->getData();
+}
