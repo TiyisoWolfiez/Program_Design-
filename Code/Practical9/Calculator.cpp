@@ -27,3 +27,11 @@ template <typename T>
 void Calculator<T>::addOperator(Operator<T>* op){
     this->operatorStack->push(op->clone());
 }
+
+template <typename T>
+T Calculator<T>::removeValue(){
+    if(valueStack->getTop() == NULL){
+        return NULL;
+    }
+    return this->valueStack->pop()->getData();
+}
