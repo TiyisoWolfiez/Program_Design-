@@ -49,3 +49,20 @@ template <typename T>
 int Calculator<T>::numOperators(){
     return this->operatorStack->size();
 }
+template <typename T>
+T Calculator<T>::calculate(){
+    if(this->operatorStack->size() < 1){
+        return NULL;
+    }
+    else if((this->valueStack->size()-1) != this->operatorStack->size()){
+        return NULL;
+    }
+    while(this->operatorStack->getTop() != NULL){
+        T firstValue = this->valueStack->pop()->getData();
+        T secondValue = this->valueStack->pop()->getData();
+        Operator<T>* appropriateOperator = this->removeOperator();
+        T intermediate = appropriateOperator->operator()(firstValue, secondValue);
+        this->addValue(intermediate);
+    }
+    return this->valueStack->getTop()->getData();
+}
