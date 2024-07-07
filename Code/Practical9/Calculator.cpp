@@ -22,3 +22,8 @@ template <typename T>
 void Calculator<T>::addValue(T val){
     this->valueStack->push(val);
 }
+
+template <typename T>
+void Calculator<T>::addOperator(Operator<T>* op){
+    this->operatorStack->push(op->clone());
+}
