@@ -45,3 +45,7 @@ Operator<T>* Calculator<T>::removeOperator(){
     }
     return this->operatorStack->pop()->getData();
 }
+template <typename T>
+int Calculator<T>::numOperators(){
+    return this->operatorStack->size();
+}
