@@ -17,3 +17,8 @@ Calculator<T>::~Calculator(){
         delete this->valueStack;
     }
 }
+
+template <typename T>
+void Calculator<T>::addValue(T val){
+    this->valueStack->push(val);
+}
