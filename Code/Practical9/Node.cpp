@@ -13,3 +13,7 @@ template <typename T>
 Node<T>* Node<T>::getNext(){
     return this->next;
 }
+template <typename T>
+void Node<T>::setNext(Node<T>* ptr){
+    this->next = ptr;
+}
