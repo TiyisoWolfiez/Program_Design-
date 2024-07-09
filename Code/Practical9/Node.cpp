@@ -9,3 +9,7 @@ template <typename T>
 T Node<T>::getData(){
     return this->data;
 }
+template <typename T>
+Node<T>* Node<T>::getNext(){
+    return this->next;
+}
