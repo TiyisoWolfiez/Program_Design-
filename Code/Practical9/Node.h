@@ -13,3 +13,5 @@ class Node
         Node<T>* getNext();
         void setNext(Node<T>* ptr);
 };
+#include "Node.cpp"
+#endif
